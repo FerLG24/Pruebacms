@@ -1,0 +1,343 @@
+[33mcommit 29ca7343b50749b429de4179497b52625d4752ec[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelop[m[33m, [m[1;31morigin/develop[m[33m)[m
+Author: unknown <li376940@uaeh.edu.mx>
+Date:   Thu Feb 15 16:50:43 2024 -0600
+
+    First commit
+
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1b05398[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore[m
+[36m@@ -0,0 +1,23 @@[m
+[32m+[m[32m# build output[m
+[32m+[m[32mdist/[m
+[32m+[m
+[32m+[m[32m# generated types[m
+[32m+[m[32m.astro/[m
+[32m+[m
+[32m+[m[32m# dependencies[m
+[32m+[m[32mnode_modules/[m
+[32m+[m
+[32m+[m[32m# logs[m
+[32m+[m[32mnpm-debug.log*[m
+[32m+[m[32myarn-debug.log*[m
+[32m+[m[32myarn-error.log*[m
+[32m+[m[32mpnpm-debug.log*[m
+[32m+[m
+[32m+[m[32m# environment variables[m
+[32m+[m[32m.env[m
+[32m+[m[32m.env.production[m
+[32m+[m
+[32m+[m[32m# macOS-specific files[m
+[32m+[m[32m.DS_Store[m
+[32m+[m
+[32m+[m[32mnode_modules[m
+\ No newline at end of file[m
+[1mdiff --git a/.vscode/extensions.json b/.vscode/extensions.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..22a1505[m
+[1m--- /dev/null[m
+[1m+++ b/.vscode/extensions.json[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "recommendations": ["astro-build.astro-vscode"],[m
+[32m+[m[32m  "unwantedRecommendations": [][m
+[32m+[m[32m}[m
+[1mdiff --git a/.vscode/launch.json b/.vscode/launch.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d642209[m
+[1m--- /dev/null[m
+[1m+++ b/.vscode/launch.json[m
+[36m@@ -0,0 +1,11 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "version": "0.2.0",[m
+[32m+[m[32m  "configurations": [[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "command": "./node_modules/.bin/astro dev",[m
+[32m+[m[32m      "name": "Development server",[m
+[32m+[m[32m      "request": "launch",[m
+[32m+[m[32m      "type": "node-terminal"[m
+[32m+[m[32m    }[m
+[32m+[m[32m  ][m
+[32m+[m[32m}[m
+[1mdiff --git a/README.md b/README.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1db3fb3[m
+[1m--- /dev/null[m
+[1m+++ b/README.md[m
+[36m@@ -0,0 +1,54 @@[m
+[32m+[m[32m# Astro Starter Kit: Basics[m
+[32m+[m
+[32m+[m[32m```sh[m
+[32m+[m[32mnpm create astro@latest -- --template basics[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32m[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)[m
+[32m+[m[32m[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)[m
+[32m+[m[32m[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)[m
+[32m+[m
+[32m+[m[32m> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun![m
+[32m+[m
+[32m+[m[32m![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)[m
+[32m+[m
+[32m+[m[32m## 🚀 Project Structure[m
+[32m+[m
+[32m+[m[32mInside of your Astro project, you'll see the following folders and files:[m
+[32m+[m
+[32m+[m[32m```text[m
+[32m+[m[32m/[m
+[32m+[m[32m├── public/[m
+[32m+[m[32m│   └── favicon.svg[m
+[32m+[m[32m├── src/[m
+[32m+[m[32m│   ├── components/[m
+[32m+[m[32m│   │   └── Card.astro[m
+[32m+[m[32m│   ├── layouts/[m
+[32m+[m[32m│   │   └── Layout.astro[m
+[32m+[m[32m│   └── pages/[m
+[32m+[m[32m│       └── index.astro[m
+[32m+[m[32m└── package.json[m
+[32m+[m[32m```[m
+[32m+[m
+[32m+[m[32mAstro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.[m
+[32m+[m
+[32m+[m[32mThere's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.[m
+[32m+[m
+[32m+[m[32mAny static assets, like images, can be placed in the `public/` directory.[m
+[32m+[m
+[32m+[m[32m## 🧞 Commands[m
+[32m+[m
+[32m+[m[32mAll commands are run from the root of the project, from a terminal:[m
+[32m+[m
+[32m+[m[32m| Command                   | Action                                           |[m
+[32m+[m[32m| :------------------------ | :----------------------------------------------- |[m
+[32m+[m[32m| `npm install`             | Installs dependencies                            |[m
+[32m+[m[32m| `npm run dev`             | Starts local dev server at `localhost:4321`      |[m
+[32m+[m[32m| `npm run build`           | Build your production site to `./dist/`          |[m
+[32m+[m[32m| `npm run preview`         | Preview your build locally, before deploying     |[m
+[32m+[m[32m| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |[m
+[32m+[m[32m| `npm run astro -- --help` | Get help using the Astro CLI                     |[m
+[32m+[m
+[32m+[m[32m## 👀 Want to learn more?[m
+[32m+[m
+[32m+[m[32mFeel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).[m
+[1mdiff --git a/astro.config.mjs b/astro.config.mjs[m
+[1mnew file mode 100644[m
+[1mindex 0000000..882e651[m
+[1m--- /dev/null[m
+[1m+++ b/astro.config.mjs[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32mimport { defineConfig } from 'astro/config';[m
+[32m+[m
+[32m+[m[32m// https://astro.build/config[m
+[32m+[m[32mexport default defineConfig({});[m
+[1mdiff --git a/content/posts/asdas.md b/content/posts/asdas.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..85f5eee[m
+[1m--- /dev/null[m
+[1m+++ b/content/posts/asdas.md[m
+[36m@@ -0,0 +1,15 @@[m
+[32m+[m[32m---[m
+[32m+[m[32mtitle: asdas[m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32mdasdkasljdiokasdaskln[m
+[32m+[m
+[32m+[m[32msda[m
+[32m+[m
+[32m+[m[32md[m
+[32m+[m
+[32m+[m[32mas[m
+[32m+[m
+[32m+[m[32mda[m
+[32m+[m
+[32m+[m[32mda[m
+[1mdiff --git a/content/posts/hello-world.md b/content/posts/hello-world.md[m
+[1mnew file mode 100644[m
+[1mindex 0000000..6089579[m
+[1m--- /dev/null[m
+[1m+++ b/content/posts/hello-world.md[m
+[36m@@ -0,0 +1,18 @@[m
+[32m+[m[32m---[m
+[32m+[m[32mtitle: Hello, World![m
+[32m+[m[32m---[m
+[32m+[m
+[32m+[m[32m## Hello World![m
+[32m+[m
+[32m+[m[32mLorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non lorem diam. Quisque vulputate nibh sodales eros pretium tincidunt. Aenean porttitor efficitur convallis. Nulla sagittis finibus convallis. Phasellus in fermentum quam, eu egestas tortor. Maecenas ac mollis leo. Integer maximus eu nisl vel sagittis.[m
+[32m+[m
+[32m+[m[32mSuspendisse facilisis, mi ac scelerisque interdum, ligula ex imperdiet felis, a posuere eros justo nec sem. Nullam laoreet accumsan metus, sit amet tincidunt orci egestas nec. Pellentesque ut aliquet ante, at tristique nunc. Donec non massa nibh. Ut posuere lacus non aliquam laoreet. Fusce pharetra ligula a felis porttitor, at mollis ipsum maximus. Donec quam tortor, vehicula a magna sit amet, tincidunt dictum enim. In hac habitasse platea dictumst. Mauris sit amet ornare ligula, blandit consequat risus. Duis malesuada pellentesque lectus, non feugiat turpis eleifend a. Nullam tempus ante et diam pretium, ac faucibus ligula interdum.[m
+[32m+[m[32mkll[m[41m [m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[32mDSA[m
+[32m+[m
+[32m+[m[32mDSA[m
+\ No newline at end of file[m
+[1mdiff --git a/package-lock.json b/package-lock.json[m
+[1mnew file mode 100644[m
+[1mindex 0000000..8e563bf[m
+[1m--- /dev/null[m
+[1m+++ b/package-lock.json[m
+[36m@@ -0,0 +1,21563 @@[m
+[32m+[m[32m{[m
+[32m+[m[32m  "name": "Pruebacms",[m
+[32m+[m[32m  "version": "0.0.1",[m
+[32m+[m[32m  "lockfileVersion": 3,[m
+[32m+[m[32m  "requires": true,[m
+[32m+[m[32m  "packages": {[m
+[32m+[m[32m    "": {[m
+[32m+[m[32m      "version": "0.0.1",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "astro": "^4.4.0",[m
+[32m+[m[32m        "tinacms": "^1.5.28"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "devDependencies": {[m
+[32m+[m[32m        "@tinacms/cli": "^1.5.39",[m
+[32m+[m[32m        "@types/node": "^20.11.19"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@alloc/quick-lru": {[m
+[32m+[m[32m      "version": "5.2.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@alloc/quick-lru/-/quick-lru-5.2.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==",[m
+[32m+[m[32m      "dev": true,[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=10"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/sponsors/sindresorhus"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@ampproject/remapping": {[m
+[32m+[m[32m      "version": "2.2.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@ampproject/remapping/-/remapping-2.2.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-lFMjJTrFL3j7L9yBxwYfCq2k6qqwHyzuUl/XBnif78PWTJYyL/dfowQHWE3sp6U6ZzqWiiIZnpTMO96zhkjwtg==",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "@jridgewell/gen-mapping": "^0.3.0",[m
+[32m+[m[32m        "@jridgewell/trace-mapping": "^0.3.9"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=6.0.0"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@ardatan/relay-compiler": {[m
+[32m+[m[32m      "version": "12.0.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@ardatan/relay-compiler/-/relay-compiler-12.0.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-9anThAaj1dQr6IGmzBMcfzOQKTa5artjuPmw8NYK/fiGEMjADbSguBY2FMDykt+QhilR3wc9VA/3yVju7JHg7Q==",[m
+[32m+[m[32m      "dev": true,[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "@babel/core": "^7.14.0",[m
+[32m+[m[32m        "@babel/generator": "^7.14.0",[m
+[32m+[m[32m        "@babel/parser": "^7.14.0",[m
+[32m+[m[32m        "@babel/runtime": "^7.0.0",[m
+[32m+[m[32m        "@babel/traverse": "^7.14.0",[m
+[32m+[m[32m        "@babel/types": "^7.0.0",[m
+[32m+[m[32m        "babel-preset-fbjs": "^3.4.0",[m
+[32m+[m[32m        "chalk": "^4.0.0",[m
+[32m+[m[32m        "fb-watchman": "^2.0.0",[m
+[32m+[m[32m        "fbjs": "^3.0.0",[m
+[32m+[m[32m        "glob": "^7.1.1",[m
+[32m+[m[32m        "immutable": "~3.7.6",[m
+[32m+[m[32m        "invariant": "^2.2.4",[m
+[32m+[m[32m        "nullthrows": "^1.1.1",[m
+[32m+[m[32m        "relay-runtime": "12.0.0",[m
+[32m+[m[32m        "signedsource": "^1.0.0",[m
+[32m+[m[32m        "yargs": "^15.3.1"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "bin": {[m
+[32m+[m[32m        "relay-compiler": "bin/relay-compiler"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "peerDependencies": {[m
+[32m+[m[32m        "graphql": "*"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@ardatan/relay-compiler/node_modules/ansi-styles": {[m
+[32m+[m[32m      "version": "4.3.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==",[m
+[32m+[m[32m      "dev": true,[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "color-convert": "^2.0.1"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=8"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/chalk/ansi-styles?sponsor=1"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@ardatan/relay-compiler/node_modules/chalk": {[m
+[32m+[m[32m      "version": "4.1.2",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz",[m
+[32m+[m[32m      "integrity": "sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==",[m
+[32m+[m[32m      "dev": true,[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "ansi-styles": "^4.1.0",[m
+[32m+[m[32m        "supports-color": "^7.1.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=10"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "funding": {[m
+[32m+[m[32m        "url": "https://github.com/chalk/chalk?sponsor=1"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@ardatan/relay-compiler/node_modules/color-convert": {[m
+[32m+[m[32m      "version": "2.0.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ==",[m
+[32m+[m[32m      "dev": true,[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "color-name": "~1.1.4"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=7.0.0"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@ardatan/relay-compiler/node_modules/color-name": {[m
+[32m+[m[32m      "version": "1.1.4",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz",[m
+[32m+[m[32m      "integrity": "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==",[m
+[32m+[m[32m      "dev": true[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@ardatan/relay-compiler/node_modules/has-flag": {[m
+[32m+[m[32m      "version": "4.0.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/has-flag/-/has-flag-4.0.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==",[m
+[32m+[m[32m      "dev": true,[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=8"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@ardatan/relay-compiler/node_modules/supports-color": {[m
+[32m+[m[32m      "version": "7.2.0",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/supports-color/-/supports-color-7.2.0.tgz",[m
+[32m+[m[32m      "integrity": "sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==",[m
+[32m+[m[32m      "dev": true,[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m[32m        "has-flag": "^4.0.0"[m
+[32m+[m[32m      },[m
+[32m+[m[32m      "engines": {[m
+[32m+[m[32m        "node": ">=8"[m
+[32m+[m[32m      }[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@astrojs/compiler": {[m
+[32m+[m[32m      "version": "2.5.3",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@astrojs/compiler/-/compiler-2.5.3.tgz",[m
+[32m+[m[32m      "integrity": "sha512-jzj01BRv/fmo+9Mr2FhocywGzEYiyiP2GVHje1ziGNU6c97kwhYGsnvwMkHrncAy9T9Vi54cjaMK7UE4ClX4vA=="[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@astrojs/internal-helpers": {[m
+[32m+[m[32m      "version": "0.2.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@astrojs/internal-helpers/-/internal-helpers-0.2.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-06DD2ZnItMwUnH81LBLco3tWjcZ1lGU9rLCCBaeUCGYe9cI0wKyY2W3kDyoW1I6GmcWgt1fu+D1CTvz+FIKf8A=="[m
+[32m+[m[32m    },[m
+[32m+[m[32m    "node_modules/@astrojs/markdown-remark": {[m
+[32m+[m[32m      "version": "4.2.1",[m
+[32m+[m[32m      "resolved": "https://registry.npmjs.org/@astrojs/markdown-remark/-/markdown-remark-4.2.1.tgz",[m
+[32m+[m[32m      "integrity": "sha512-2RQBIwrq+2qPYtp99bH+eL5hfbK0BoxXla85lHsRpIX/IsGqFrPX6pXI2cbWPihBwGbKCdxS6uZNX2QerZWwpQ==",[m
+[32m+[m[32m      "dependencies": {[m
+[32m+[m
