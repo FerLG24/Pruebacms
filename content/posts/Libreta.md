@@ -18,4 +18,4 @@ a
 
 sd
 
-asd
+asd![](/favicon.svg)
